@@ -1,0 +1,27 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+    <link rel="stylesheet" type='text/css'  href="{%  static 'style.css' %}">
+</head>
+<body>
+    {% if user is None %}
+        <h3> User Not Found </h3>
+        <a href="{% url 'home' %}"> go back </a>
+    {% else %}
+        <h2> User Details </h2>
+        <p> First Name:  {{user.first_name}} </p>
+        <p> Last Name:  {{user.last_name}} </p>
+        <p> Username:  {{user.username}} </p>
+        <p> Email:  {{user.email}} </p>
+        <p> Password:  {{user.password}} </p>
+        <p> Gender: {{user.gender}} </p>
+        <p> Date of birth: {{user.birth_date}}</p>
+        <p> Incremented ID: {{user.id_inc}} </p>
+        <a class="edit-btn" href="{% url 'edit-user' user.id %}" > Edit </a>
+
+    {% endif %}
+
+</body>
+</html>

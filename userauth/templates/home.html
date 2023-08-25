@@ -1,0 +1,20 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" type='text/css'  href="{%  static 'style.css' %}">
+</head>
+<body>
+    <h1> User Manager </h1>
+    <h3>Create User: <a href="{% url 'create-user' %}"> Create </a> </h3>
+    <div class="user-list">
+        {% for user in users %}
+            <div class="user-list-item">
+                <a class="user-data" href="{% url 'detail-user' user.id %}">  {{user}} </a>
+                <a class="delete-btn" href="{% url 'delete-user' user.id %}"> Delete </a>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
